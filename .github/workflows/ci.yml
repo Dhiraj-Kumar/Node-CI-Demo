@@ -46,6 +46,6 @@ jobs:
           image: dhiraj2001/myapp
           tags: latest
           registry: docker.io
-          dockerfile: CyberShop/Dockerfile
+          dockerfile: ./Dockerfile
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
