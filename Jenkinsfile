@@ -32,7 +32,7 @@ pipeline {
                     docker build -t dhiraj2001/myapp .
 
                     echo Logging into Docker Hub...
-                    echo %DOCKER_PASS% | docker login -u %DOCKER_USER% -p %DOCKER_PASS%
+                    docker login -u %DOCKER_USER% -p %DOCKER_PASS%
 
                     echo Pushing Docker image...
                     docker push dhiraj2001/myapp
