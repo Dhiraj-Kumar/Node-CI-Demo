@@ -1,0 +1,16 @@
+image: node:20
+stages:
+  - build
+  - test
+build:
+  stage: build
+  script:
+    - 'npm install'
+  tags:
+    - testing
+test:
+  stage: test
+  script:
+    - 'npm run test'
+  tags:
+    - testing
