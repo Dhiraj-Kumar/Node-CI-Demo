@@ -1,0 +1,18 @@
+name: NodeJS CI Demo
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  build:
+    runs-on: ubuntu-lastest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node Environment
+        uses: actions/setup-node@v3.9.1
+
+      - name: Restoring the dependencies
+        run: npm install
