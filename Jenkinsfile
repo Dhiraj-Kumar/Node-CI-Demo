@@ -1,4 +1,12 @@
 pipeline {
+    agent {
+        node {
+            label 'Built-in Node'
+        }
+    }
+    triggers {
+        pollSCM '* * * * *'
+    }
     stages {
         stage('Clone') {
             steps {
