@@ -23,5 +23,23 @@ pipeline {
                 bat 'npm run test'
             }
         }
+        stage('Publish') {
+            steps {
+                withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
+                    bat """
+                    echo Building Docker image...
+                    docker build -t dhiraj2001/myapp .
+
+                    echo Logging into Docker Hub...
+                    echo %DOCKER_PASS% | docker login -u %DOCKER_USER% -password-stdin
+
+                    echo Pushing Docker image...
+                    docker push dhiraj2001/myapp
+
+                    echo Logging out...
+                    docker logout
+                    """
+                }
+        }
     }
 }
