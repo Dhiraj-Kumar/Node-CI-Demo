@@ -23,6 +23,7 @@ pipeline {
                 bat 'npm run test'
             }
         }
+
         stage('Publish') {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'docker-hub-creds', usernameVariable: 'DOCKER_USER', passwordVariable: 'DOCKER_PASS')]) {
@@ -40,6 +41,7 @@ pipeline {
                     docker logout
                     """
                 }
+            }
         }
     }
 }
