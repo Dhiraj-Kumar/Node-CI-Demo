@@ -1,20 +1,35 @@
 pipeline {
     agent any
-    triggers {
-        pollSCM '* * * * *'
-    }
+
     stages {
-        stage('Clone') {
+        stage('Checkout') {
             steps {
-                git branch: 'master', url: 'https://github.com/Dhiraj-Kumar/Node-CI-Demo.git'        }
+                git url: 'https://github.com/Dhiraj-Kumar/Node-CI-Demo.git', branch: 'master'
+            }
         }
-        stage('Build') {
+
+        stage('Install Dependencies') {
             steps {
-                sh 'npm install'        }
+                sh 'npm install'
+            }
         }
+
         stage('Test') {
             steps {
-                sh 'npm run test'        }
+                sh 'npm run test'
+            }
+        }
+    }
+
+    post {
+        always {
+            echo 'Pipeline completed.'
+        }
+        success {
+            echo 'Build succeeded.'
+        }
+        failure {
+            echo 'Build failed.'
         }
     }
 }
