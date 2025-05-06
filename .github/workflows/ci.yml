@@ -16,3 +16,18 @@ jobs:
 
       - name: Restoring the dependencies
         run: npm install
+  test:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      - name: Setup Node Environment
+        uses: actions/setup-node@v3.9.1
+
+      - name: Restoring the dependencies
+        run: npm install
+
+      - name: Running test cases
+        run: npm run test
