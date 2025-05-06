@@ -1,8 +1,8 @@
 {
-  "name": "myapp",
+  "name": "express-app",
   "version": "1.0.0",
   "description": "",
-  "main": "app.js",
+  "main": "index.js",
   "scripts": {
     "test": "jest --forceExit"
   },
@@ -10,10 +10,19 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+<<<<<<< HEAD
     "express": "^5.1.0"
+=======
+    "express": "^5.1.0",
+    "express-app": "file:"
+>>>>>>> e826ccbc9c4fd973c0d6e58facaebac5684b90bc
   },
   "devDependencies": {
     "jest": "^29.7.0",
     "supertest": "^7.1.0"
   }
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> e826ccbc9c4fd973c0d6e58facaebac5684b90bc
